@@ -14,3 +14,5 @@ http://www.vero.fi/fi-FI/Syventavat_veroohjeet/Verohallinnon_ohjeet/2003/Laskua_
 
 http://www.finlex.fi/fi/laki/ajantasa/1993/19931501
 
+http://www.fkl.fi/teemasivut/sepa/tekninen_dokumentaatio/Sivut/default.aspx
+
