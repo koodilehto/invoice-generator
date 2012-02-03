@@ -39,7 +39,6 @@
 % For PDF metadata.
 \usepackage{hyperxmp}
 \usepackage[
-xetex,
 colorlinks=true,
 linkcolor=black,
 urlcolor=black,
