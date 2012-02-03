@@ -1,0 +1,9 @@
+Invoice generator
+=================
+
+Goals
+-----
+
+1. Compliant with Finnish value added tax laws.
+2. Beautiful output with TeX.
+
