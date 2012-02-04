@@ -22,10 +22,16 @@
     \newcommand{\phonename}{Puh}
     \newcommand{\faxname}{Fax}
     \newcommand{\billto}{Vastaanottaja}
+    \newcommand{\datename}{Laskun päiväys}
+    \newcommand{\invoiceidname}{Laskun tunniste}
+    \newcommand{\customeridname}{Asiakkaan tunniste}
+    \newcommand{\termofpaymentname}{Maksuehto}
+    \newcommand{\duedatename}{Eräpäivä}
     \newcommand{\productname}{Tuote}
     \newcommand{\netpricename}{Nettohinta}
     \newcommand{\vatname}{Alv}
     \newcommand{\totalpricename}{Yhteensä}
+    \newcommand{\thankyouname}{Thank you for your business!}
     \selectlanguage{finnish}
 }
 \DeclareOption{english}{
@@ -106,12 +112,17 @@
 
 \noindent\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l l l l}
     \textbf{\productname} & \textbf{\netpricename} & \textbf{\vatname} & \textbf{\totalpricename} \\
+    & & & \\
     \input{descr.tex}
 \end{tabular*}
 
 } % end AtBeginDocument
 
 \AtEndDocument{
+
+\begin{center}
+    \thankyouname
+\end{center}
 
 } % end AtEndDocument
 
