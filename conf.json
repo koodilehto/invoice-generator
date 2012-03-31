@@ -1,0 +1,18 @@
+{
+    "company": {
+        "name": "Example Oy",
+        "address": "Street 12",
+        "postcode": "00000",
+        "postoffice": "JYVÄSKYLÄ",
+        "phone": "+358123456789",
+        "businessId": "12345678-9"
+    },
+    "bank": {
+        "name": "Banksters Oy",
+        "iban": "FI12 3456 890",
+        "bic": "bank"
+    },
+    "userId": "123",
+    "invoiceNumber": "123",
+    "logo": "pics/logo.pdf"
+}
