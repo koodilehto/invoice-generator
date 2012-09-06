@@ -1,0 +1,13 @@
+{
+    "name": "invoice",
+    "description": "Invoice creator",
+    "author": "Juho Vepsalainen <bebraw@gmail.com>",
+    "version": "0.1.0",
+
+    "dependencies": {
+        "mu2": ">= 0.5.8",
+        "commander": ">= 0.5.2"
+    },  
+
+    "bin": "./bin/invoice"
+}
