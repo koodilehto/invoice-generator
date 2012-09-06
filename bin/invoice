@@ -1,0 +1,49 @@
+#!/usr/bin/env node
+var VERSION = '0.1.0';
+
+var fs = require('fs');
+var hogan = require('hogan.js');
+var mu = require('mu2');
+var program = require('commander');
+
+console.log('invoice ' + VERSION + '\n');
+
+program.
+    version(VERSION).
+    option('-c --config <json file>', 'configuration file').
+    option('-r --recipient <json file>', 'invoice recipient').
+    option('-o --output <output.tex>', 'output file').
+    option('-t --template <tex file>', 'template file').
+    parse(process.argv);
+
+if (!program.config) quit('Missing config');
+if (!program.recipient) quit('Missing recipient');
+if (!program.output) quit('Missing output');
+if (!program.template) quit('Missing template');
+
+main(program.config, program.recipient, program.output, program.template);
+
+function main(conf, recipient, output, template) {
+    conf = JSON.parse(fs.readFileSync(conf, 'utf-8'));
+    conf.recipient = JSON.parse(fs.readFileSync(recipient, 'utf-8'));
+
+    var tmpl = hogan.compile(fs.readFileSync(template, 'utf-8'));
+    var data = tmpl.render(conf);
+
+    fs.writeFileSync(output, data);
+    console.log('Wrote ' + output);
+}
+
+// http://stackoverflow.com/questions/171251/how-can-i-merge-properties-of-two-javascript-objects-dynamically
+function merge(obj1, obj2){
+    var obj3 = {}; 
+    for (var attrname in obj1) { obj3[attrname] = obj1[attrname]; }
+    for (var attrname in obj2) { obj3[attrname] = obj2[attrname]; }
+    return obj3;
+}
+
+function quit(msg) {
+    console.log(msg);
+    process.exit();
+}
+
