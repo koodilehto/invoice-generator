@@ -37,11 +37,7 @@ def fieldify(config):
         def __getattr__(self, a):
             return self.get(a, '')
 
-    ret = Proxy(config)
-
-    print ret.name
-
-    return ret
+    return Proxy(config)
 
 
 def run():
