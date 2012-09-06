@@ -2,7 +2,6 @@
 import argparse
 import codecs
 import json
-import pystache
 
 
 def parse_args():
@@ -29,6 +28,22 @@ def write(path, data):
         f.write(data)
 
 
+def fieldify(config):
+    class Proxy(dict):
+        def __init__(self, a):
+            for k, v in a.items():
+                self[k] = Proxy(v) if isinstance(v, dict) else v
+
+        def __getattr__(self, a):
+            return self.get(a, '')
+
+    ret = Proxy(config)
+
+    print ret.name
+
+    return ret
+
+
 def run():
     args = parse_args()
     tpl = read(args.template)
@@ -36,7 +51,7 @@ def run():
     config['recipient'] = json.loads(read(args.recipient))
 
     out = args.output
-    write(out, pystache.render(tpl, config))
+    write(out, tpl.format(**fieldify(config)))
     print 'Wrote ' + out + '!'
 
 
