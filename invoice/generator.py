@@ -18,13 +18,13 @@ def run():
 def parse_args():
     parser = argparse.ArgumentParser(description='Generates invoices')
     parser.add_argument('-c', '--config', type=str,
-        help='Configuration file (json)')
+        help='Configuration file (json)', required=True)
     parser.add_argument('-r', '--recipient', type=str,
-        help='Invoice recipient (json)')
+        help='Invoice recipient (json)', required=True)
     parser.add_argument('-o', '--output', type=str,
-        help='Output file (tex)')
+        help='Output file (tex)', required=True)
     parser.add_argument('-t', '--template', type=str,
-        help='Template file (tex)')
+        help='Template file (tex)', required=True)
 
     return parser.parse_args()
 
