@@ -4,6 +4,17 @@ import codecs
 import json
 
 
+def run():
+    args = parse_args()
+    tpl = read(args.template)
+    config = json.loads(read(args.config))
+    config['recipient'] = json.loads(read(args.recipient))
+
+    out = args.output
+    write(out, tpl.format(**fieldify(config)))
+    print 'Wrote ' + out + '!'
+
+
 def parse_args():
     parser = argparse.ArgumentParser(description='Generates invoices')
     parser.add_argument('-c', '--config', type=str,
@@ -38,17 +49,6 @@ def fieldify(config):
             return self.get(a, '')
 
     return Proxy(config)
-
-
-def run():
-    args = parse_args()
-    tpl = read(args.template)
-    config = json.loads(read(args.config))
-    config['recipient'] = json.loads(read(args.recipient))
-
-    out = args.output
-    write(out, tpl.format(**fieldify(config)))
-    print 'Wrote ' + out + '!'
 
 
 if __name__ == '__main__':
