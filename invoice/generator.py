@@ -2,6 +2,7 @@
 import argparse
 import codecs
 import json
+import pystache
 
 
 def run():
@@ -12,7 +13,7 @@ def run():
     config['recipient'] = json.loads(read(args.recipient))
 
     out = args.output
-    write(out, tpl.format(**fieldify(config)))
+    write(out, pystache.render(tpl, fieldify(config)))
     print 'Wrote ' + out + '!'
 
 

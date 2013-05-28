@@ -15,19 +15,19 @@
 
 % TODO:  maksuehto 8 pv netto, eräpäivä, huomautusaika 5 päivää, viivästyskorko 10,5%
 
-\setkomavar{fromname}{{company.name}}
-\setkomavar{fromaddress}{{company.address} \\ {company.postcode} {company.postoffice} }
-\setkomavar{fromphone}{{company.phone}}
+\setkomavar{fromname}{ {{company.name}} }
+\setkomavar{fromaddress}{ {{company.address}} \\ {{company.postcode}} {{company.postoffice}} }
+\setkomavar{fromphone}{ {{company.phone}} }
 \setkomavar{fromemail}{TODO}
 \setkomavar{invoice}{TODO}
 \setkomavar{customer}{TODO}
-\setkomavar{location}{\hspace{-7em} \parbox{7cm}{Y-tunnus:\hfill {company.businessId} \\ IBAN:\hfill {bank.iban} \\ BIC/SWIFT:\hfill {bank.bic}}}
-\setkomavar{fromlogo}{\includegraphics[width=2.5cm]{{company.logo}}}
+\setkomavar{location}{\hspace{-7em} \parbox{7cm}{Y-tunnus:\hfill {{company.businessId}} \\ IBAN:\hfill {bank.iban} \\ BIC/SWIFT:\hfill {bank.bic}}}
+\setkomavar{fromlogo}{\includegraphics[width=2.5cm]{{{company.logo}}}}
 \setkomavar{date}{\the\day.\the\month.\the\year}
  
 \begin{document}
  
-\begin{letter}{{recipient.name} \\ {recipient.address} \\ {recipient.postcode} {recipient.postoffice}}
+\begin{letter}{{{recipient.name}} \\ {{recipient.address}} \\ {{recipient.postcode}} {{recipient.postoffice}}}
 
 %fromemail=true
 \KOMAoptions{fromphone=true,fromfax=false,fromlogo,foldmarks=true}
