@@ -1,0 +1,19 @@
+{
+    "_comment": "Accurate on 2013-05-28",
+    "company": {
+        "name": "Koodilehto Osk",
+        "address": "Pirkkolantie 1 D 4",
+        "postcode": "40270",
+        "postoffice": "PALOKKA",
+        "phone": "+358 40 4619 296",
+        "businessId": "2446827-3"
+    },
+    "bank": {
+        "name": "",
+        "iban": "FI49 5290 8120 0531 12",
+        "bic": "OKOYFIHH"
+    },
+    "userId": "123",
+    "invoiceNumber": "123",
+    "logo": "pics/koodilehto_logo.pdf"
+}
