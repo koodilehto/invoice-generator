@@ -1,19 +1,55 @@
-{company.name}
-{company.address}
-{company.postcode}
-{company.postoffice}
-{company.phone}
-{company.businessId}
+\documentclass[a4paper]{scrlttr2}
 
-{bank.name}
-{bank.iban}
-{bank.bic}
+\usepackage{palatino}
 
-TODO: use this to generate proper id at the generator and inject that to context instead
-{userId}
-{invoiceNumber}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[finnish]{babel}
+\usepackage{url}
 
-{logo}
+\usepackage{graphicx}
 
-{recipient.name}
-... same fields as for company
+\newcaptionname{finnish}{\phonename}{Puh}
+\newcaptionname{finnish}{\emailname}{Email}
+\setkomavar{signature}{}
+
+% TODO:  maksuehto 8 pv netto, eräpäivä, huomautusaika 5 päivää, viivästyskorko 10,5%
+
+\setkomavar{fromname}{{company.name}}
+\setkomavar{fromaddress}{{company.address} \\ {company.postcode} {company.postoffice} }
+\setkomavar{fromphone}{{company.phone}}
+\setkomavar{fromemail}{TODO}
+\setkomavar{invoice}{TODO}
+\setkomavar{customer}{TODO}
+\setkomavar{location}{\hspace{-7em} \parbox{7cm}{Y-tunnus:\hfill {company.businessId} \\ IBAN:\hfill {bank.iban} \\ BIC/SWIFT:\hfill {bank.bic}}}
+\setkomavar{fromlogo}{\includegraphics[width=2.5cm]{{company.logo}}}
+\setkomavar{date}{\the\day.\the\month.\the\year}
+ 
+\begin{document}
+ 
+\begin{letter}{{recipient.name} \\ {recipient.address} \\ {recipient.postcode} {recipient.postoffice}}
+
+%fromemail=true
+\KOMAoptions{fromphone=true,fromfax=false,fromlogo,foldmarks=true}
+\setkomavar{subject}{LASKU}
+%\setkomavar{customer}{}
+\opening{}
+ 
+
+% tavaroiden määrä ja luonne sekä palvelujen laajuus ja luonne
+%tavaroiden toimituspäivä, palvelujen suorituspäivä tai ennakkomaksun maksupäivä
+\noindent Tarjotun palvelun nimi xx.xx.2013 \hfill EUR XXXX,XX
+    
+%veron peruste verokannoittain ja yksikköhinta ilman veroa ja hyvitykset ja alennukset (jos eivät yksikköhinnassa)
+
+\noindent Verokanta: \hfill 0\%, EUR 0,00
+
+\noindent Verottomuuden peruste: TODO
+ 
+%TODO: brutto, alv-%, vero, yhteensä
+
+\closing{}
+ 
+\end{letter}
+ 
+\end{document}
