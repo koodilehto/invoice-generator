@@ -1,1 +1,7 @@
-./invoice/generator.py -c conf.json -r companies/demo.json -t tex/template.tex -o demo.tex
+#!/bin/sh
+
+./invoice/generator.py -c sender/koodilehto.json -r companies/demo.json -t tex/template.tex -o demo.tex
+
+#pdflatex demo.tex
+#rm *.aux *.log *.out
+
