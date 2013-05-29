@@ -4,5 +4,6 @@
     "postcode": "00000",
     "postoffice": "JYVÄSKYLÄ",
     "phone": "+358123456789",
-    "businessId": "12345678-9"
+    "businessId": "12345678-9",
+    "customerId": "1234"
 }

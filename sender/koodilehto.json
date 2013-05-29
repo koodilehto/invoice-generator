@@ -15,5 +15,8 @@
     },
     "userId": "123",
     "invoiceNumber": "123",
-    "logo": "pics/koodilehto_logo.pdf"
+    "logo": "pics/koodilehto_logo.pdf",
+    "sender": {
+        "email": "matti.meikalainen@omaemail.info"
+    }
 }
