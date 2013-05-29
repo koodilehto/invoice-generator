@@ -18,6 +18,7 @@ def run():
 
 
 def render(tpl, fields):
+    """Substitute text in <angle brackets> with corresponding variable value."""
     regex = re.compile('\<([a-zA-Z.]+)\>', re.MULTILINE)
 
     def repl(m):
@@ -64,7 +65,7 @@ def write(path, data):
 
 
 def fieldify(config):
-    """Replace template fields with actual data."""
+    """Fill template field data structure with actual data."""
     class Proxy(dict):
         def __init__(self, a):
             for k, v in a.items():
