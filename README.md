@@ -1,8 +1,6 @@
 Invoice generator
 =================
 
-Note that the generator requires [pystache](https://github.com/defunkt/pystache) for it to work.
-
 Goals
 -----
 

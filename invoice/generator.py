@@ -2,7 +2,7 @@
 import argparse
 import codecs
 import json
-import pystache
+import re
 
 
 def run():
@@ -13,8 +13,27 @@ def run():
     config['recipient'] = json.loads(read(args.recipient))
 
     out = args.output
-    write(out, pystache.render(tpl, fieldify(config)))
+    write(out, render(tpl, fieldify(config)))
     print 'Wrote ' + out + '!'
+
+
+def render(tpl, fields):
+    regex = re.compile('\<([a-zA-Z.]+)\>', re.MULTILINE)
+
+    def repl(m):
+        group = m.group(1)
+        parts = group.split('.')
+        value = fields
+
+        for part in parts:
+            try:
+                value = value[part]
+            except KeyError:
+                value = ''
+
+        return value
+
+    return regex.sub(repl, tpl)
 
 
 def parse_args():
