@@ -18,38 +18,37 @@
 \setkomavar{fromname}{<company.name>}
 \setkomavar{fromaddress}{<company.address> \\ <company.postcode> <company.postoffice>}
 \setkomavar{fromphone}{<company.phone>}
-\setkomavar{fromemail}{TODO}
+\setkomavar{fromemail}{<sender.email>}
 \setkomavar{invoice}{TODO}
-\setkomavar{customer}{TODO}
-\setkomavar{location}{\hspace{-7em} \parbox{7cm}{Y-tunnus:\hfill <company.businessId> \\ IBAN:\hfill <bank.iban> \\ BIC/SWIFT:\hfill <bank.bic>}
-\setkomavar{fromlogo}{\includegraphics[width=2.5cm]{<company.logo>}
+\setkomavar{customer}{<recipient.customerId>}
+\setkomavar{location}{\hspace{-7em} \parbox{7cm}{Y-tunnus:\hfill <company.businessId> \\ IBAN:\hfill <bank.iban> \\ BIC/SWIFT:\hfill <bank.bic>}}
+\setkomavar{fromlogo}{\includegraphics[height=2.4cm]{pics/koodilehto_logo.pdf}}
 \setkomavar{date}{\the\day.\the\month.\the\year}
- 
+
 \begin{document}
- 
+
 \begin{letter}{<recipient.name> \\ <recipient.address> \\ <recipient.postcode> <recipient.postoffice>}
 
-%fromemail=true
-\KOMAoptions{fromphone=true,fromfax=false,fromlogo,foldmarks=true}
+\KOMAoptions{fromphone=true,fromfax=false,fromemail=true,fromlogo,foldmarks=true}
 \setkomavar{subject}{LASKU}
 %\setkomavar{customer}{}
 \opening{}
- 
+
 
 % tavaroiden määrä ja luonne sekä palvelujen laajuus ja luonne
 %tavaroiden toimituspäivä, palvelujen suorituspäivä tai ennakkomaksun maksupäivä
 \noindent Tarjotun palvelun nimi xx.xx.2013 \hfill EUR XXXX,XX
-    
+
 %veron peruste verokannoittain ja yksikköhinta ilman veroa ja hyvitykset ja alennukset (jos eivät yksikköhinnassa)
 
 \noindent Verokanta: \hfill 0\%, EUR 0,00
 
 \noindent Verottomuuden peruste: TODO
- 
+
 %TODO: brutto, alv-%, vero, yhteensä
 
 \closing{}
- 
+
 \end{letter}
- 
+
 \end{document}
