@@ -28,7 +28,8 @@ def render(tpl, fields):
 
         for part in parts:
             try:
-                value = str(value[part])
+                value = value[part]
+                value = str(value) if isinstance(value, int) else value
             except KeyError:
                 value = ''
 
