@@ -28,7 +28,7 @@ def render(tpl, fields):
 
         for part in parts:
             try:
-                value = value[part]
+                value = str(value[part])
             except KeyError:
                 value = ''
 
