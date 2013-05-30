@@ -13,7 +13,7 @@ def run():
     config['recipient'] = json.loads(read(args.recipient))
 
     out = args.output
-    write(out, render(tpl, fieldify(config)))
+    write(out, render(tpl, config))
     print 'Wrote ' + out + '!'
 
 
@@ -29,6 +29,7 @@ def render(tpl, fields):
         for part in parts:
             try:
                 value = value[part]
+                value = str(value) if isinstance(value, int) else value
             except KeyError:
                 value = ''
 
@@ -62,19 +63,6 @@ def write(path, data):
     """Write files with UTF safely."""
     with codecs.open(path, 'w', encoding='utf-8') as f:
         f.write(data)
-
-
-def fieldify(config):
-    """Fill template field data structure with actual data."""
-    class Proxy(dict):
-        def __init__(self, a):
-            for k, v in a.items():
-                self[k] = Proxy(v) if isinstance(v, dict) else v
-
-        def __getattr__(self, a):
-            return self.get(a, '')
-
-    return Proxy(config)
 
 
 if __name__ == '__main__':
