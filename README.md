@@ -16,3 +16,11 @@ http://www.finlex.fi/fi/laki/ajantasa/1993/19931501
 
 http://www.fkl.fi/teemasivut/sepa/tekninen_dokumentaatio/Sivut/default.aspx
 
+Todo
+----
+
+Output also .txt for email inclusion.
+Better layout and ordering for referral info.
+Invoice number generator.
+Include the items with json file or similar.
+
